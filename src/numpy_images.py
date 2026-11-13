@@ -27,7 +27,11 @@ first_c=oct_patch[:,0]
 print("\nFirst Column:\n",first_c)
 
 # Boolean Masking
-bright_pixels = oct_patch[oct_patch >= 150]
-mean_B=np.mean(bright_pixels)
-print("\nBright Pixels:\n", bright_pixels)
+bright_pixels = oct_patch[oct_patch >= 150] # creates a True/False grid 
+mean_B=round(np.mean(bright_pixels),2)
+dark_pixels=oct_patch[oct_patch<50]
+mean_d=round(np.mean(dark_pixels),2)
+print("\nBright Pixels:\n", bright_pixels) # NumPy instantly extracts only the True numbers
 print("\n Mean of the bright Pixels:", mean_B)
+print("\nDark Pixels:\n", dark_pixels)
+print("\n Mean of the Dark Pixels:", mean_d)
