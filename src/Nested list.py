@@ -16,4 +16,3 @@ for j in range(len(names)):
 result.sort()
 for r in result:
     print(r)
-    
