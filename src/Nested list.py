@@ -15,4 +15,5 @@ for j in range(len(names)):
         result.append(names[j])
 result.sort()
 for r in result:
-    print(r)        
+    print(r)
+    
