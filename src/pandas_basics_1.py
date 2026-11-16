@@ -7,6 +7,7 @@ patients = {
     "diagnosis": ["Healthy", "Glaucoma", "Healthy", "Glaucoma", "Glaucoma", "Healthy"],
     "is_smoker": [False, True, False, True, False, True]
 }
+
 # Creating Dataframe
 df=pd.DataFrame(patients)
 print('\n',df)
