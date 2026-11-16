@@ -1,4 +1,5 @@
 import pandas as pd
+
 patients = {
     "patient_id": ["P101", "P102", "P103", "P104", "P105", "P106"],
     "age": [52, 67, 41, 75, 60, 48],
@@ -8,23 +9,21 @@ patients = {
 }
 # Creating Dataframe
 df=pd.DataFrame(patients)
-print(df)
-
+print('\n',df)
+# Highest and lowest value of eye_pressure
 max_eye_pressure=df['eye_pressure'].max()
 min_eye_pressure=df['eye_pressure'].min()
-print(max_eye_pressure)
-print(min_eye_pressure)
-
+print("\nThe highest eye_pressure:", max_eye_pressure)
+print("The lowest value eye_pressure:", min_eye_pressure)
+# Category Count
 count=df['diagnosis'].value_counts()
-print(count)
-
-# Filter and print only the rows where diagnosis == "Glaucoma"
-gla= df[df["diagnosis"] == "Glaucoma"]
-print(gla)
-
+print("\nDiagnosis Count\n", count)
+# Row Filtering: where diagnosis == "Glaucoma"
+glaucoma_patient= df[df["diagnosis"] == "Glaucoma"]
+print("\nThe Glaucoma Patients Only\n", glaucoma_patient)
+# High-Risk Filter (Two Conditions)
 high_risk = df[(df["eye_pressure"] > 20.0) & (df["is_smoker"] == True)]
-print(high_risk)
-
-# average age of only the Glaucoma patients
-glaucoma_avg_age=gla['age'].mean()
-print(round(glaucoma_avg_age,2))
+print("\nHigh Risk Patients (Pressure > 20 & Smoker)\n", high_risk)
+# Average age of only the Glaucoma patients
+glaucoma_avg_age=glaucoma_patient['age'].mean()
+print("\nThe average age of Glaucoma patients:", round(glaucoma_avg_age,2))
