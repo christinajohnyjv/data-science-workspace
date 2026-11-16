@@ -27,4 +27,11 @@ high_risk = df[(df["eye_pressure"] > 20.0) & (df["is_smoker"] == True)]
 print("\nHigh Risk Patients (Pressure > 20 & Smoker)\n", high_risk)
 # Average age of only the Glaucoma patients
 glaucoma_avg_age=glaucoma_patient['age'].mean()
-print("\nThe average age of Glaucoma patients:", round(glaucoma_avg_age,2))
+print("\nThe average age of Glaucoma patients:", round(glaucoma_avg_age,1))
+# Adding a New Column
+df["high_pressure"] = df["eye_pressure"] >= 21.0
+print("\nTable with New 'high_pressure' Column\n", df)
+# Average eye pressure per diagnosis (groupby & mean)
+print("\nAverage Eye Pressure by Diagnosis\n", df.groupby("diagnosis")["eye_pressure"].mean().round(1))
+# Average Age AND Eye Pressure per diagnosis (Multi-column groupby & mean)
+print("\nAverage Age & Eye Pressure by Diagnosis\n", df.groupby("diagnosis")[["age", "eye_pressure"]].mean().round(1))
