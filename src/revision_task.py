@@ -15,10 +15,12 @@ print(df['stage'].value_counts())
 diabetes=df[df["stage"]=="Type-2"]
 print(diabetes)
 
-# df["glu_lev"]=df[df["glucose_level"]>140==True]
-# print(df)
+df["high_glucose"] = df["glucose_level"] > 140
+print(df)
 
-#print(df.groupby["glucose_level"].mean())
+print(df.groupby("stage")["glucose_level"].mean())
 
-# stage == "Type-2" AND age >= 65
-print(df.groupby('stage')["Type-2"][["age"]>=60].mean)
+
+high_risk_seniors = df[(df["stage"] == "Type-2") & (df["age"] >= 65)]
+print("\n--- Type-2 Patients Aged 65+ ---")
+print(high_risk_seniors)
