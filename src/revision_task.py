@@ -10,17 +10,21 @@ clinical_records = {
 
 df=pd.DataFrame(clinical_records)
 print(df.shape)
+
+# Count Occurrences of Each Stage
 print(df['stage'].value_counts())
 
+# Filter Only 'Type-2' Patients
 diabetes=df[df["stage"]=="Type-2"]
 print(diabetes)
 
+# Add high_glucose column
 df["high_glucose"] = df["glucose_level"] > 140
 print(df)
 
+# GroupBy stage and get average glucose
 print(df.groupby("stage")["glucose_level"].mean())
 
-
-high_risk_seniors = df[(df["stage"] == "Type-2") & (df["age"] >= 65)]
-print("\n--- Type-2 Patients Aged 65+ ---")
-print(high_risk_seniors)
+# Filter Type-2 AND Age >= 65
+high_risk = df[(df["stage"] == "Type-2") & (df["age"] >= 65)]
+print(high_risk)
