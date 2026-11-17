@@ -14,3 +14,6 @@ print(df['stage'].value_counts())
 
 diabetes=df[df["stage"]=="Type-2"]
 print(diabetes)
+
+df["glu_lev"]=df[df["glucose_level"]>140==True]
+print(df)
