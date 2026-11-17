@@ -11,3 +11,6 @@ clinical_records = {
 df=pd.DataFrame(clinical_records)
 print(df.shape)
 print(df['stage'].value_counts())
+
+diabetes=df[df["stage"]=="Type-2"]
+print(diabetes)
