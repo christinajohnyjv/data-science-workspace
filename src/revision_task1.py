@@ -12,15 +12,19 @@ screening_data = {
 df=pd.DataFrame(screening_data)
 print(df)
 
+# Add Risk Column
 df["high_sugar"] = df["blood_sugar"] >= 180
 print(df)
 
-fil=df[(df["category"]=="DME") & (df["high_sugar"]==True)]
-print(fil)
+# Filter High-Risk DME Cases
+critical_cases=df[(df["category"]=="DME") & (df["high_sugar"]==True)]
+print(critical_cases)
 
+# GroupBy and Average Retinal Thickness
 disease_type=df.groupby("category")["retinal_thickness"].mean()
 print(round(disease_type,1))
 
+# Reusable NumPy Analysis Function
 def get_column_metrics(df, column_name):
     arr = np.array(df[column_name]) 
     min_val=np.min(arr)
@@ -28,4 +32,5 @@ def get_column_metrics(df, column_name):
     avg_val=np.mean(arr.round(1))
     return min_val, max_val, avg_val 
 
-print("Retinal Thickness:", get_column_metrics(df, "retinal_thickness"))   
+min_t, max_t, mean_t = get_column_metrics(df, "retinal_thickness")
+print(f"Retinal Thickness -> Min: {min_t} μm | Max: {max_t} μm | Mean: {mean_t} μm")
