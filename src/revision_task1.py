@@ -11,3 +11,9 @@ screening_data = {
 # Create the DataFrame
 df=pd.DataFrame(screening_data)
 print(df)
+
+df["high_sugar"] = df["blood_sugar"] >= 180
+print(df)
+
+fil=df[(df["category"]=="DME") & (df["high_sugar"]==True)]
+print(fil)
