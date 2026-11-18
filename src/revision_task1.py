@@ -1,0 +1,13 @@
+import numpy as np
+import pandas as pd
+
+screening_data = {
+    "patient_id": ["P01", "P02", "P03", "P04", "P05", "P06"],
+    "blood_sugar": [110, 185, 95, 220, 140, 260],
+    "retinal_thickness": [95.0, 155.0, 90.0, 175.0, 120.0, 190.0],
+    "category": ["Normal", "DME", "Normal", "DME", "Normal", "DME"]
+}
+
+# Create the DataFrame
+df=pd.DataFrame(screening_data)
+print(df)
