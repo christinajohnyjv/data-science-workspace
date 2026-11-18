@@ -20,3 +20,12 @@ print(fil)
 
 disease_type=df.groupby("category")["retinal_thickness"].mean()
 print(round(disease_type,1))
+
+def get_column_metrics(df, column_name):
+    min_val=np.min(column_name)
+    max_val=np.max(column_name)
+    avg_val=np.mean(column_name)
+    return min_val, max_val, avg_val 
+
+arr = np.array(df["retinal_thickness"])
+print(get_column_metrics(df,arr))    
