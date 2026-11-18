@@ -17,3 +17,6 @@ print(df)
 
 fil=df[(df["category"]=="DME") & (df["high_sugar"]==True)]
 print(fil)
+
+disease_type=df.groupby("category")["retinal_thickness"].mean()
+print(round(disease_type,1))
