@@ -16,3 +16,7 @@ plt.bar(counts.index, counts.values, color=["skyblue", "salmon", "lightgreen"])
 plt.title("Distribution of Retinal Conditions")
 plt.xlabel("Diagnosis Category")
 plt.ylabel("Number of Patients")
+
+# Save the plot as a PNG image
+plt.savefig("retinal_distribution.png", dpi=300, bbox_inches="tight")
+plt.close()
